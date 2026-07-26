@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SIR-IPH5P | RISET </title>
+
+  
+
+  <style>
+
+    html, body {
+
+      margin: 0;
+
+      padding: 0;
+
+      height: 100%;
+
+      overflow: hidden;
+
+      font-family: sans-serif;
+
+    }
+
+    .iframe-container {
+
+      position: relative;
+
+      width: 100%;
+
+      height: 100vh;
+
+    }
+
+    iframe {
+
+      width: 100%;
+
+      height: 100%;
+
+      border: none;
+
+    }
+
+    .loader {
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      font-size: 1.2rem;
+
+      color: #666;
+
+      z-index: 10;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="iframe-container">
+
+    <div class="loader" id="loader">Loading app...</div>
+
+    <iframe
+
+      src="https://script.google.com/macros/s/AKfycby8dbQueRB6nretb2F0nQPMbIwufm2NPI9nn_XbWw2jHppye0mr9kZVX9KYxWhkDRK7zQ/exec"
+
+      title="SIR-IPH5P | RISET"
+
+      onload="document.getElementById('loader').style.display='none';"
+
+      allowfullscreen>
+
+    </iframe>
+
+  </div>
+
+</body>
+
+</html>
