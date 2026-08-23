@@ -1,508 +1,95 @@
 <!DOCTYPE html>
-<html lang="id">
+
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <meta name="theme-color" content="#CDB4DB">
+  <meta charset="UTF-8" />
 
-  <title>SATRIA MUDA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SIM-SATRIA | AGENDA</title>
+
+  
 
   <style>
-    :root {
-      --thistle: #cdb4db;
-      --pastel-petal: #ffc8dd;
-      --baby-pink: #ffafcc;
-      --icy-blue: #bde0fe;
-      --sky-blue: #a2d2ff;
 
-      --text: #493b55;
-      --muted: #766b7d;
-      --white: #ffffff;
-    }
+    html, body {
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
       margin: 0;
+
       padding: 0;
-      width: 100%;
-      min-height: 100%;
-      font-family: Inter, Arial, sans-serif;
-    }
 
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
+      height: 100%;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 24px;
-
-      color: var(--text);
-
-      background:
-        radial-gradient(
-          circle at 10% 15%,
-          rgba(255, 200, 221, .85),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 90% 85%,
-          rgba(162, 210, 255, .85),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #f7effa 0%,
-          #fff6fa 45%,
-          #eef8ff 100%
-        );
-    }
-
-    .container {
-      width: 100%;
-      max-width: 430px;
-    }
-
-    .card {
-      position: relative;
       overflow: hidden;
 
-      background: rgba(255, 255, 255, .92);
+      font-family: sans-serif;
 
-      border: 1px solid rgba(205, 180, 219, .55);
-      border-radius: 28px;
-
-      padding: 38px 28px 30px;
-
-      text-align: center;
-
-      box-shadow:
-        0 20px 60px rgba(88, 67, 103, .15);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
+    .iframe-container {
 
-      width: 180px;
-      height: 180px;
-
-      top: -90px;
-      right: -70px;
-
-      border-radius: 50%;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--pastel-petal),
-          var(--sky-blue)
-        );
-
-      opacity: .45;
-    }
-
-    .logo {
       position: relative;
 
-      width: 82px;
-      height: 82px;
-
-      margin: 0 auto 22px;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      border-radius: 25px;
-
-      font-size: 38px;
-      font-weight: 900;
-
-      color: #594664;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--thistle),
-          var(--pastel-petal),
-          var(--icy-blue)
-        );
-
-      box-shadow:
-        0 12px 28px rgba(151, 119, 171, .25);
-    }
-
-    h1 {
-      margin: 0;
-
-      font-size: 29px;
-      font-weight: 900;
-
-      letter-spacing: 1.2px;
-    }
-
-    .tagline {
-      margin-top: 9px;
-
-      font-size: 14px;
-      font-weight: 700;
-
-      color: #6d5b76;
-    }
-
-    .divider {
-      width: 65px;
-      height: 4px;
-
-      margin: 21px auto;
-
-      border-radius: 999px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--baby-pink),
-          var(--sky-blue)
-        );
-    }
-
-    .welcome {
-      margin-bottom: 6px;
-
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .description {
-      max-width: 340px;
-
-      margin: 0 auto 25px;
-
-      font-size: 13px;
-      line-height: 1.7;
-
-      color: var(--muted);
-    }
-
-    .login-btn {
       width: 100%;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 100vh;
 
-      gap: 11px;
-
-      padding: 15px 20px;
-
-      border: 0;
-      border-radius: 16px;
-
-      cursor: pointer;
-
-      text-decoration: none;
-
-      font-size: 14px;
-      font-weight: 800;
-
-      color: #493b55;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--pastel-petal),
-          var(--icy-blue)
-        );
-
-      box-shadow:
-        0 10px 25px rgba(162, 210, 255, .25);
-
-      transition:
-        transform .18s ease,
-        box-shadow .18s ease;
     }
 
-    .login-btn:hover {
-      transform: translateY(-2px);
+    iframe {
 
-      box-shadow:
-        0 14px 30px rgba(162, 210, 255, .35);
+      width: 100%;
+
+      height: 100%;
+
+      border: none;
+
     }
 
-    .login-btn:active {
-      transform: scale(.98);
+    .loader {
+
+      position: absolute;
+
+      top: 50%;
+
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      font-size: 1.2rem;
+
+      color: #666;
+
+      z-index: 10;
+
     }
 
-    .google-icon {
-      width: 34px;
-      height: 34px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
-      background: white;
-
-      font-size: 17px;
-      font-weight: 900;
-
-      box-shadow:
-        0 3px 10px rgba(0, 0, 0, .08);
-    }
-
-    .info {
-      display: flex;
-      align-items: flex-start;
-
-      gap: 9px;
-
-      margin-top: 20px;
-
-      padding: 13px;
-
-      text-align: left;
-
-      border-radius: 14px;
-
-      background: #f8f4fa;
-
-      font-size: 11px;
-      line-height: 1.55;
-
-      color: #796d80;
-    }
-
-    .info-icon {
-      font-size: 15px;
-    }
-
-    .footer {
-      margin-top: 22px;
-
-      font-size: 10px;
-
-      color: #9b8fa1;
-    }
-
-    .loader-overlay {
-      position: fixed;
-      inset: 0;
-
-      display: none;
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(247, 239, 250, .94);
-
-      z-index: 9999;
-    }
-
-    .loader-content {
-      text-align: center;
-    }
-
-    .spinner {
-      width: 44px;
-      height: 44px;
-
-      margin: 0 auto 15px;
-
-      border: 4px solid rgba(205, 180, 219, .4);
-      border-top-color: #a67cbc;
-
-      border-radius: 50%;
-
-      animation: spin .75s linear infinite;
-    }
-
-    .loading-title {
-      font-size: 15px;
-      font-weight: 800;
-
-      color: var(--text);
-    }
-
-    .loading-sub {
-      margin-top: 6px;
-
-      font-size: 11px;
-
-      color: var(--muted);
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 16px;
-      }
-
-      .card {
-        padding: 32px 21px 25px;
-        border-radius: 24px;
-      }
-
-      h1 {
-        font-size: 26px;
-      }
-
-      .logo {
-        width: 74px;
-        height: 74px;
-
-        font-size: 34px;
-      }
-    }
   </style>
+
 </head>
 
 <body>
 
-  <main class="container">
+  <div class="iframe-container">
 
-    <section class="card">
+    <div class="loader" id="loader">Sim-SATRIA App...</div>
 
-      <div class="logo">S</div>
+    <iframe
 
-      <h1>SATRIA MUDA</h1>
+      src="https://script.google.com/macros/s/AKfycbytHRIOBO1clm0w4SQWnee5UTKXEMD1hAr08k3L6ci_zNc18Pn0J0RWmlbBA42RD_YY/exec"
 
-      <div class="tagline">
-        Mulia . Berakhlak | Hebat . Berkarya
-      </div>
+      title="SIM-SATRIA | AGENDA"
 
-      <div class="divider"></div>
+      onload="document.getElementById('loader').style.display='none';"
 
-      <div class="welcome">
-        Selamat Datang
-      </div>
+      allowfullscreen>
 
-      <p class="description">
-        Platform digital aktivitas, pembiasaan,
-        pengembangan potensi, dan karya siswa.
-        Masuk menggunakan akun Google sekolah
-        yang telah terdaftar.
-      </p>
-
-      <a
-        class="login-btn"
-        id="loginButton"
-        href="https://script.google.com/macros/s/AKfycbytHRIOBO1clm0w4SQWnee5UTKXEMD1hAr08k3L6ci_zNc18Pn0J0RWmlbBA42RD_YY/exec"
-        target="_blank"
-        rel="noopener noreferrer"
-        onclick="showLoading()"
-      >
-
-        <span class="google-icon">G</span>
-
-        <span>
-          MASUK KE SATRIA MUDA
-        </span>
-
-      </a>
-
-      <div class="info">
-
-        <span class="info-icon">🔐</span>
-
-        <span>
-          Autentikasi dilakukan langsung oleh Google.
-          SATRIA MUDA tidak menyimpan password akun Google Anda.
-        </span>
-
-      </div>
-
-      <div class="footer">
-        SATRIA MUDA • Sistem Aktivitas Siswa
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- Loading -->
-  <div
-    class="loader-overlay"
-    id="loaderOverlay"
-  >
-
-    <div class="loader-content">
-
-      <div class="spinner"></div>
-
-      <div class="loading-title">
-        Membuka SATRIA MUDA...
-      </div>
-
-      <div class="loading-sub">
-        Silakan lanjutkan autentikasi akun Google
-      </div>
-
-    </div>
+    </iframe>
 
   </div>
 
-
-  <script>
-
-    function showLoading() {
-
-      const loader =
-        document.getElementById("loaderOverlay");
-
-      loader.style.display = "flex";
-
-
-      /*
-       * Karena target="_blank",
-       * halaman launcher tetap berada di belakang.
-       *
-       * Loader dikembalikan setelah beberapa detik
-       * agar ketika pengguna kembali ke launcher
-       * halaman tidak terlihat terkunci.
-       */
-
-      setTimeout(function () {
-
-        loader.style.display = "none";
-
-      }, 2500);
-
-    }
-
-
-    /*
-     * Ketika pengguna kembali dari Chrome /
-     * browser eksternal, pastikan loader hilang.
-     */
-
-    window.addEventListener(
-      "pageshow",
-      function () {
-
-        document.getElementById(
-          "loaderOverlay"
-        ).style.display = "none";
-
-      }
-    );
-
-  </script>
-
 </body>
+
 </html>
